@@ -1,9 +1,13 @@
-import React from 'react';
+import React from "react";
+// import store from "store";
+// import { Provider } from "react-redux";
+import Main from "pages/Main";
+import "styles/styles.scss";
 
-// import { Container } from './styles';
+const App: React.FC = () => (
+  // <Provider store={store}>
+  <Main />
+  // </Provider>
+);
 
-const src: React.FC = () => {
-  return <h1>Teste</h1>;
-}
-
-export default src;
+export default App;
