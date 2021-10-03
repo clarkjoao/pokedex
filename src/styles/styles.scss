@@ -9,8 +9,6 @@ li {
 }
 
 * {
-  // margin: 0;
-  // padding: 0;
   box-sizing: border-box;
 }
 
@@ -45,27 +43,29 @@ body {
 
 .display {
   position: relative;
-  min-height: 78%;
+  height: 80%;
   &::after {
     content: " ";
     position: absolute;
     width: 90%;
     height: 100%;
-    border-left: 2px solid #73121e;
-    border-bottom: 2px solid #73121e;
+    border-left: 2px solid $secondary;
+    border-bottom: 2px solid $secondary;
     border-bottom-left-radius: 20px;
   }
 }
 
 .screen {
-  position: relative;
   width: 75%;
   height: 90%;
   background-color: $display-screen-color;
-  border: 1px solid black;
+  border: 1px solid $black;
   border-radius: 10px;
+  position: relative;
   &__content {
-    border: 1px solid black;
+    overflow: auto;
+    height: 100%;
+    border: 1px solid $black;
     border-radius: 10px;
   }
 }
@@ -79,4 +79,12 @@ body {
   border: none;
   outline: none;
   text-align: center;
+}
+
+.findButton {
+  width: 2rem;
+  height: 2rem;
+  background-color: $input-color;
+  border: 1px solid $black;
+  border-radius: 100%;
 }
