@@ -5,9 +5,9 @@ import { useAppSelector } from "store/hooks";
 const List: React.FC = () => {
   const pokemons = useAppSelector(selectPokemons);
   return (
-    <div className="list" style={{ overflow: "auto" }}>
+    <div className="list">
       {pokemons.pokemons.map((item, index) => (
-        <div className="list__item d-flex flex-row align-items-center border-bottom border-muted mt-2">
+        <div className="list__item cursor-pointer bg-dark-hover d-flex flex-row align-items-center border-bottom border-muted mt-2">
           <span
             className="list__img me-2"
             style={{
@@ -18,7 +18,7 @@ const List: React.FC = () => {
             <h3 key={item.id} className="m-0 text-capitalize">
               {item.name}
             </h3>
-            <span>Nº{item?.id}</span>
+            <span>Nº {item?.id}</span>
           </div>
         </div>
       ))}
