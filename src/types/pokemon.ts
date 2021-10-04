@@ -13,7 +13,7 @@ export interface IPokemonTypes{
   url: string;
  }
 }
-export interface IPokemonDetail {
+export interface IPokemon {
   abilities: IPokemonAbilities[];
   base_experience: number;
   height: number;

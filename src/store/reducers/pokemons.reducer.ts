@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from 'store'
-
-interface Pokemon{
+import  {IPokemon } from 'types/pokemon'
+interface IResults{
     id: string;
     name: string;
     url: string;
@@ -10,27 +10,31 @@ interface PokemonsState {
     count: number
     next: string | null;
     previous: string | null;
-    pokemons: Pokemon[],
+    results: IResults[]
+    pokemonsDetails: IPokemon[]
 }
 
 const initialState: PokemonsState = {
     count: 0,
     next: null,
     previous: null,
-    pokemons: []
+    results: [],
+    pokemonsDetails: []
 }
 
 export const pokemonsReducer = createSlice({
   name: 'pokemons',
   initialState,
   reducers: {
-    increment: (state, action: PayloadAction<PokemonsState>) => {
-      return state = {...action.payload, pokemons:[...state.pokemons, ...action.payload.pokemons]}
+    fetchList: (state, action: PayloadAction<PokemonsState>) => {
+      state = {...action.payload, results:[...state.results, ...action.payload.results]}
+      console.log("dispatch", state)
+      return state
     },
   },
 })
 
-export const { increment } = pokemonsReducer.actions
+export const { fetchList } = pokemonsReducer.actions
 
 export const selectPokemons = (state: RootState) => state.pokemons
 
