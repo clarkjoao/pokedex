@@ -70,6 +70,16 @@ body {
   }
 }
 
+.list {
+  &__img {
+    width: 50px;
+    height: 50px;
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+}
+
 .info-input {
   color: white;
   background-color: $input-color;

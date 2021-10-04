@@ -11,14 +11,19 @@ const Main: React.FC = () => {
   const fetchData = () => {
     setIsLoading(true);
     api
-      .get("pokemon")
+      .get("pokemon/?limit=893")
       .then(({ data }: any) => {
+        const pokemons =
+          data?.results?.map((item: any, index: number) => ({
+            id: index + 1,
+            ...item,
+          })) || [];
         dispatch(
           increment({
             count: data?.count,
             next: data?.next,
             previous: data?.previous,
-            pokemons: data?.results,
+            pokemons,
           })
         );
       })
@@ -32,7 +37,7 @@ const Main: React.FC = () => {
       <div className="case d-flex flex-column bg-primary">
         <div className="display d-flex align-items-center justify-content-center">
           <div className="screen d-flex align-items-center justify-content-center p-3 me-2">
-            <div className="screen__content w-100 h-100 bg-white">
+            <div className="screen__content w-100 h-100 bg-white p-2">
               <List />
             </div>
           </div>
