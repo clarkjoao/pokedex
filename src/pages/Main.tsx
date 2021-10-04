@@ -52,11 +52,9 @@ const Main: React.FC = () => {
   );
 
   return (
-    <div className="d-flex align-items-center justify-content-center vw-100 vh-100">
-      <Case footer={FooterCase}>
-        <List data={pokemons.pokemons} />
-      </Case>
-    </div>
+    <Case footer={FooterCase}>
+      <List data={pokemons.pokemons} />
+    </Case>
   );
 };
 

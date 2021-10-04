@@ -6,8 +6,8 @@ import { Switch, Route } from "react-router-dom";
 const Routes: React.FC = () => {
   return (
     <Switch>
-      <Route exact path="/" component={Main} />
-      <Route exact path="/details" component={Details} />
+      <Route exact path="/details/:id" component={Details} />
+      <Route path="/" component={Main} />
     </Switch>
   );
 };

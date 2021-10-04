@@ -8,7 +8,7 @@ const List: React.FC<IListProps> = ({ data }) => {
   const history = useHistory();
   const handleClick = useCallback(
     (id) => {
-      history.push(`details?id=${id}`);
+      history.push(`details/${id}`);
     },
     [history]
   );
