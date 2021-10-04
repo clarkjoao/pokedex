@@ -84,7 +84,7 @@ body {
   &__item {
     cursor: pointer;
     &:hover {
-      background: rgba($black, 0.2);
+      background: rgba($input-color, 0.3);
     }
   }
 }

@@ -1,13 +1,32 @@
-import React from "react";
-import { selectPokemons } from "store/reducers/pokemons.reducer";
-import { useAppSelector } from "store/hooks";
+import React, { useCallback } from "react";
+import { useHistory } from "react-router";
 
-const List: React.FC = () => {
-  const pokemons = useAppSelector(selectPokemons);
+interface IListProps {
+  data: any[];
+}
+const List: React.FC<IListProps> = ({ data }) => {
+  const history = useHistory();
+  const handleClick = useCallback(
+    (id) => {
+      history.push(`details?id=${id}`);
+    },
+    [history]
+  );
+
+  if (data.length < 1)
+    return (
+      <div className="list">
+        <h3>No data.</h3>
+      </div>
+    );
+
   return (
     <div className="list">
-      {pokemons.pokemons.map((item, index) => (
-        <div className="list__item cursor-pointer bg-dark-hover d-flex flex-row align-items-center border-bottom border-muted mt-2">
+      {data?.map((item, index) => (
+        <div
+          onClick={() => handleClick(item?.id)}
+          className="list__item cursor-pointer bg-dark-hover d-flex flex-row align-items-center border-bottom border-muted mt-2"
+        >
           <span
             className="list__img me-2"
             style={{
